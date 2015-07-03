@@ -1,21 +1,12 @@
-get '/users/new' do
-	erb :new_user
-end
-
-before /users\/\d+/ do
-	puts "estamos en el before bueno"
+# Whitelist for /register, /login, /
+before do
+	pass if ['login', 'register', nil].include? request.path_info.split('/')[1]
 	if session[:user_id] == nil
-		puts "No existe una sesion"
-		session[:errors] = "no existe una sesion"
+		# puts "No existe una sesion"
+		session[:errors] = "No existe una sesion"
 		# @error = session[:error]
 		redirect to("/")
 	end
-end
-
-get '/users' do
-	id = params[:id]
-	@user = User.find("#{id}")
-	erb :show_user
 end
 
 post '/users' do
