@@ -1,3 +1,7 @@
 class Answer < ActiveRecord::Base
-  # Remember to create a migration!
+
+	belongs_to :participation
+	belongs_to :choice
+	belongs_to :question, :through => :choices
+
 end
