@@ -18,6 +18,11 @@
 </head>
 <body>
   <div class="container">
+    <% if session[:errors] %>
+      <p><%= session[:errors] %></p>
+      <% session[:errors] = nil %>
+    <% end %>
+    
     <%= yield %>
   </div>
 </body>
