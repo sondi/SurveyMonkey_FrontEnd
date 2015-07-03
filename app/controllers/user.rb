@@ -4,7 +4,7 @@ end
 
 before /users\/\d+/ do
 	puts "estamos en el before bueno"
-	if session[:email] == nil
+	if session[:user_id] == nil
 		puts "No existe una sesion"
 		session[:errors] = "no existe una sesion"
 		# @error = session[:error]
@@ -63,6 +63,7 @@ post '/register' do
 	email = params[:email]
 	password = params[:password]
 	@user = User.create(name: name, email: email, password: password)
+	session[:user_id] = @user.id
 	redirect to("/users/#{@user.id}")
 end
 
