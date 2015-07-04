@@ -7,3 +7,25 @@
 th {
   text-align: left;
 }
+
+
+#login_form{
+	float: right;
+	margin-bottom: 15px;
+	padding-top: 10px;
+}
+
+#errors{
+	float: right;
+	margin-bottom: 15px;
+}
+
+#session a, #session p{
+	display: inline;
+	float: right;
+	margin-left: 10px;
+}
+
+#session{
+margin-bottom: 15px;
+}

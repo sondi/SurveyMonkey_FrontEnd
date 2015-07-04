@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
 	validates :password, presence: true
 	validates :password, length: { minimum: 8 }
-	validates :password, format: { with: /\A[\w+\-.]+\z/i}
+	# validates :password, format: { with: /\A[\w+\-.]+\z/i}
 
   include BCrypt
   
