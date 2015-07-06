@@ -1,0 +1,8 @@
+<h1>Bienvenido a Surveys!</h1>
+<p>Este es un esqueleto de sinatra que armamos para ti</p>
+
+<% if @surveys %>
+	<% @surveys.each do  |s|%>
+		<h3><%= s.name %></h3><br>
+	<% end %>
+<% end %>
