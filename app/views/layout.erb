@@ -18,9 +18,26 @@
 </head>
 <body>
   <div class="container">
-    
-
-
+    <% if logged_in? %>
+      <div id="session">
+      <p><%= current_user.name + " is logged_in"  %><p>
+      <a href="/logout">LogOut</a>
+    </div>
+    <% else %>
+      <form id="login_form" action="/login" method="post">
+        Email:
+        <input type="text" name="email">
+        Password:
+        <input type="password" name="password">
+        <input type="submit" value="Log In">
+      </form>
+    <% end %>
+    <div id="errors">
+      <% if session[:errors] %>
+        <p><%= session[:errors] %></p>
+        <% session[:errors] = nil %>
+      <% end %>
+    </div>
 
     <%= yield %>
   </div>
