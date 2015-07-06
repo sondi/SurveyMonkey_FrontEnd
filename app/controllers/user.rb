@@ -49,6 +49,13 @@ post '/users/:id/delete' do
 	redirect to ('/')
 end
 
+get '/users/:id/participations' do
+	id = params[:id]
+	@user = User.find(id)
+	@participations = @user.participated_surveys
+	erb :show_participations
+end
+
 post '/register' do
 	name = params[:name]
 	email = params[:email]
@@ -84,19 +91,6 @@ get '/logout' do
 	session.clear
 	redirect to('/')
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

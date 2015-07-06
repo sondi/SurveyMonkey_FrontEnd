@@ -1,8 +1,11 @@
 class User < ActiveRecord::Base
 
 
-	has_many :surveys
+  # has_many :surveys
+	has_many :authored_surveys, class_name: "Survey", foreign_key: "author_id"
 	has_many :participations
+  # has_many :surveys, :through => :participations
+  has_many :participated_surveys, :through => :participations, :source => :survey
 
 	validates :email, presence: true, uniqueness: true
 	validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
