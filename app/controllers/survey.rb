@@ -17,12 +17,26 @@ post '/create_survey' do
 	choice_2 = params[:option_2]
 	choice_3 = params[:option_3]
 	name = params[:survey_title]
-	session[:user_id] = id
-	q = Question.new(survey_id: Survey.last.id + 1, question: question)
-	Choice.new(question_id: q.id, choice: choice_1)
-	Choice.new(question_id: q.id, choice: choice_2)
-	Choice.new(question_id: q.id, choice: choice_3)
-	Survey.new(user_id: id, name: name)
+	# id = session[:user_id]
+	# @user = User.find(id)
+	
+	@survey = Survey.new(name: name)
+	current_user.authored_surveys <<	@survey
+	
+	@question = Question.new(question: question)
+	@survey.questions << @question
+	
+	@choice1 = Choice.create(choice: choice_1)
+	@choice2 = Choice.create(choice: choice_2)
+	@choice3 = Choice.create(choice: choice_3)
+
+	@question.choices << @choice1 << @choice2 << @choice3
+
+	@user.save
+
+	# q = Question.new(survey_id: Survey.last.id + 1, question: question)
+
+	# q.save
 	redirect to('/')
 end
 
