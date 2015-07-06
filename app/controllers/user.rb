@@ -53,9 +53,17 @@ post '/register' do
 	name = params[:name]
 	email = params[:email]
 	password = params[:password]
-	@user = User.create(name: name, email: email, password: password)
-	session[:user_id] = @user.id
-	redirect to("/users/#{@user.id}")
+  @user = User.new(name: name, email: email, password: password)
+	
+  if @user.save
+		session[:user_id] = @user.id
+		redirect to("/users/#{@user.id}")
+	else
+	  puts @user.errors
+	  session[:errors] = @user.errors.messages
+		erb :index
+	end
+
 end
 
 post '/login' do
@@ -77,3 +85,19 @@ get '/logout' do
 	session.clear
 	redirect to('/')
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
