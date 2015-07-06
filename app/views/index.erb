@@ -13,3 +13,8 @@
 </form>
 <!-- <a href="/users/new">Register</a> -->
 
+<% if @surveys %>
+	<% @surveys.each do  |s|%>
+		<a href="#"><%= s.name %></a><br>
+	<% end %>
+<% end %>

@@ -27,9 +27,9 @@ post '/create_survey' do
 end
 
 get '/show_survey' do
-	session[:user_id] = id
+	id = session[:user_id]
 	user = User.find(id)
-	@user_surveys = Survey.find_by(user_id: id)
+	@user_surveys = Survey.where(author_id: id)
 	erb :show_survey
 end
 
