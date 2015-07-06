@@ -6,3 +6,13 @@
 <br>
 <a href="/users/<%=@user.id%>/edit">Edit</a>
 <a href="/logout">Log Out</a>
+
+<div class="botones">
+<form method="get" action="/new_survey" >
+	<button id="nEncuesta" type="submit">Nueva encuesta</button>
+</form>
+<br><br>
+<form method="get" action="/show_survey" >
+	<button id="mEncuesta" type="submit">Mis encuestas</button>
+</form>
+</div>
