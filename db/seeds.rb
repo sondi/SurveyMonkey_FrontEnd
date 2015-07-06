@@ -9,11 +9,6 @@ User.all.each do |user|
 	end
 end
 
-User.all.each do |user|
-	3.times do
-		user.authored_surveys << Choice.create(name: "ChoiceTest#{count+=1}")
-	end
-end
 
 Participation.create(user_id: 1, survey_id: 4)
 Participation.create(user_id: 1, survey_id: 5)
