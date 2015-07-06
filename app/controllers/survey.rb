@@ -32,18 +32,19 @@ post '/create_survey' do
 
 	@question.choices << @choice1 << @choice2 << @choice3
 
-	@user.save
+	@survey.save
 
 	# q = Question.new(survey_id: Survey.last.id + 1, question: question)
 
 	# q.save
-	redirect to('/')
+	redirect to("/show_survey/#{@survey.id}")
 end
 
-get '/show_survey' do
-	id = session[:user_id]
-	user = User.find(id)
-	@user_surveys = Survey.where(author_id: id)
+get '/show_survey/:id' do
+
+	survey_id = params[:id]
+	@survey = Survey.find(survey_id)
+	
 	erb :show_survey
 end
 

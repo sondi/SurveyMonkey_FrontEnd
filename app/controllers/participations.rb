@@ -8,7 +8,8 @@ get '/participations' do
 end
 
 get '/take_survey/:id' do
-	erb :show_survey
+	@survey_id = params[:id]
+	erb :take_survey
 end
 
 # post '/participations' do
