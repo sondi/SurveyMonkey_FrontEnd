@@ -1,0 +1,6 @@
+<h1>Estas son tus encuestas </h1>
+<% if @user_surveys %>
+	<% @user_surveys.each  |s| do %>
+		<h3><%= s.name %></h3><br>
+	<% end %>
+<% end %>

@@ -15,8 +15,8 @@ class Question < ActiveRecord::Base
  			errors.add(:choices, "Debe tener 3 opciones")
 		end
 
-		if choices[0].choice == choices[1].choice || choices[0].choice == choices[2].choice
-			|| choices[1].choice == choices[2].choice
+		if choices[0].choice == choices[1].choice || choices[0].choice == choices[2].choice || choices[1].choice == choices[2].choice
 			errors.add(:choices, "Las opciones deben ser unicas")
+    end
 	end
 end

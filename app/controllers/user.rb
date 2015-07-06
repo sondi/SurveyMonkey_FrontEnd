@@ -63,7 +63,6 @@ post '/register' do
 	  session[:errors] = @user.errors.messages
 		erb :index
 	end
-
 end
 
 post '/login' do

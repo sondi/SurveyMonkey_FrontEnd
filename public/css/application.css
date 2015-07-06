@@ -8,6 +8,20 @@ th {
   text-align: left;
 }
 
+.botones {
+	width: 400px;
+	display: inline-block;
+}
+
+#nEncuesta{
+	float: right;
+	display: inline-block;
+}
+
+#mEncuesta{
+	float: left;
+	display: inline-block;
+}
 
 #login_form{
 	float: right;
