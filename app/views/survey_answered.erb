@@ -1,0 +1,21 @@
+<h1>Survey</h1>
+
+
+<h3>Survey: <%= @survey.name %></h3>
+<h3>Author: <%= @survey.author.name %></h3>
+
+<h2>You answered</h2>
+<%@survey.questions.each do |question|%>
+	<h4>Question: <%= question.question %></h4>
+	<ol>
+		<% question.choices.each do |choice| %>
+			<li>
+				<% if @choice_ids.include? choice.id %>
+					<strong><%=choice.choice%></strong>
+				<% else %>
+					<%=choice.choice%>
+				<% end %>
+			</li>
+		<% end %>
+	</ol>
+<% end %>

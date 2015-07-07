@@ -8,8 +8,36 @@ get '/participations' do
 end
 
 get '/take_survey/:id' do
-	@survey_id = params[:id]
+	survey_id = params[:id]
+	@survey = Survey.find(survey_id)
 	erb :take_survey
+end
+
+post '/take_survey/:id' do
+	survey_id = params[:id]
+	choice_id = params[:choice]
+	user_id = current_user.id
+	@participation = Participation.new(user_id: user_id, survey_id: survey_id)
+
+	@answer = Answer.create(choice_id: choice_id)
+
+	@participation.answers << @answer
+
+	@participation.save
+
+	redirect to("/survey_answered/#{@participation.id}")
+
+end
+
+get '/survey_answered/:id' do
+	participation_id = params[:id]
+	@participation = Participation.find(participation_id)
+	@survey = @participation.survey
+
+	@choice_ids = @participation.answers.map { |answer| answer.choice_id }
+
+	erb :survey_answered
+
 end
 
 # post '/participations' do
