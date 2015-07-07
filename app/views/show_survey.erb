@@ -1,7 +1,7 @@
 <h1>Estas son tus encuestas </h1>
 <% if @user_surveys %>
 	<% @user_surveys.each do |s| %>
-		<h3><%= s.name %></h3><br>
+		<!-- <h3><%= s.name %></h3><br> -->
+	<a href="/review_survey/<%= s.id %>" ><%= s.name %></a>
 	<% end %>
 <% end %>
-
