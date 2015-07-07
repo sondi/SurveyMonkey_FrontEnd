@@ -1,7 +1,13 @@
-<h1>Estas son tus encuestas </h1>
-<% if @user_surveys %>
-	<% @user_surveys.each do |s| %>
-		<!-- <h3><%= s.name %></h3><br> -->
-	<a href="/review_survey/<%= s.id %>" ><%= s.name %></a>
-	<% end %>
+<h1><%= @survey.name%></h1>
+<h3>Author: <%= @survey.author.name %></h3>
+
+
+<%@survey.questions.each do |question|%>
+	<h4>Question: <%= question.question %></h4>
+	<ol>
+		<%question.choices.each do |choice|%>
+			<li><%=choice.choice%></li>
+		<%end%>
+	</ol>
+
 <% end %>
