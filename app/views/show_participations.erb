@@ -1,7 +1,8 @@
 <h1>Participations</h1>
-
-<ol>
-	<% @participations.each do |survey| %>
-		<li><%= survey.name %></li>
-	<% end %>
-</ol>
+<% if @participations %>
+	<ol>
+		<% @participations.each do |survey| %>
+			<li><%= survey.name %></li>
+		<% end %>
+	</ol>
+<% end %>

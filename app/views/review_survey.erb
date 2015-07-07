@@ -1,0 +1,18 @@
+<% if @survey %>
+	<h1>Encuesta: <%= @survey.name %></h1>
+
+	<form action="/edit_survey/<%= @survey.id %>" method="post">
+	  Título: <input type="text" value="<%= @survey.name %>" name="title"><br><br>
+	  Pregunta: <input type="text" value="<%= @survey.questions[0].question %>" name="question">
+	  <br><br>
+	  <div id="choices">
+			Opción 1: <input type="text" value="<%= @survey.questions[0].choices[0].choice %>" name="choice_1"><br><br>
+			Opción 2: <input type="text" value="<%= @survey.questions[0].choices[1].choice %>" name="choice_2"><br><br>
+			Opción 3: <input type="text" value="<%= @survey.questions[0].choices[2].choice %>" name="choice_3"><br><br>
+	  </div>
+	  <input type="submit" value="Guardar">
+	</form><br>
+	<form action="/delete_survey/<%= @survey.id %>">
+	  <input type="submit" value="Eliminar">
+	</form>
+<% end %>
