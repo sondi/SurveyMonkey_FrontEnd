@@ -16,7 +16,12 @@ end
 post '/take_survey/:id' do
 	survey_id = params[:id]
 	choice_id = params[:choice]
-	user_id = current_user.id
+	if logged_in?
+		user_id = current_user.id
+	else
+		user_id = nil
+	end
+	
 	@participation = Participation.new(user_id: user_id, survey_id: survey_id)
 
 	@answer = Answer.create(choice_id: choice_id)

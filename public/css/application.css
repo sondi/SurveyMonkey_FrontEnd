@@ -1,13 +1,140 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
-}
-th {
-  text-align: left;
+body{
 }
 
+
+a{
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	/*background-color: #140929;*/
+
+}
+
+h1{
+	color: #140929;
+}
+
+#columns{
+	float: left;
+	width: 900px;
+}
+
+#register{
+	padding: 20px;
+	width: 406px;
+	margin-right: 0;
+	float: left;
+	border-left: dotted 2px #E8AE31;
+	border-bottom: dotted 2px #E8AE31;
+}
+
+#register h1{
+	color: #E8AE31
+}
+
+#surveys h1{
+	color: #E8AE31
+}
+
+#surveys{
+	padding: 20px;
+	width: 406px;
+	margin:0;
+	float: right;
+	border-left:dotted 2px #E8AE31;
+	border-bottom:dotted 2px #E8AE31;
+	border-right:dotted 2px #E8AE31;
+	height: 209px;
+}
+
+#surveys a {
+	width: 200px;
+	display: block;
+	color: white;
+	background-color: #140929;
+	font-weight: bold;
+	padding: 15px;
+	margin: 0 auto;
+	font-size: 1em;
+	text-decoration: none;
+}
+
+#register form input{
+	float: right;
+	padding-right: 30px;
+	margin-right: 40px;
+}
+
+
+.container {
+	margin: 0 auto;
+  width: 900px;
+}
+
+#menu{
+	width: 150px;
+	margin: 0;
+	background-color: #140929;
+	float: left;
+}
+#menu ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+#menu a{
+	display: block;
+	padding: 10px;
+	border-top:solid 1px white;
+}
+
+#menu a:hover{
+	color: #96FFBD;
+}
+
+#views{
+padding: 20px;
+width: 400px;
+margin-left: 100px;
+float: left;
+border:dotted 2px #E8AE31;
+height: 100%;
+}
+
+#views a {
+	color: #140929;
+	padding: 50px;
+	margin: 0 auto;
+	font-size: 1em;
+	text-decoration: none;
+	line-height: 200%;
+}
+
+#views form input{
+	float: right;
+	padding-right: 30px;
+	margin-right: 40px;
+}
+
+
+/*.container h1{
+	color: #140929;
+}*/
+/*th {
+  text-align: left;
+}*/
+
+#title{
+	padding-left: 358px;
+	padding-right: 358px;
+	width: 400px;
+}
+
+#title img{
+	padding-top: 30px;
+	margin-bottom: 30px;
+}
+/*
 .botones {
 	width: 300px;
 	display: inline-block;
@@ -21,25 +148,82 @@ th {
 #mEncuesta{
 	float: left;
 	display: inline-block;
-}
+}*/
 
 #login_form{
 	float: right;
 	margin-bottom: 15px;
 	padding-top: 10px;
+	background-color: #140929;
+	padding: 10px;
+	margin: 0 auto;
+	color: white;
 }
 
-#errors{
+#login_form input{ 
+	border:none;
+}
+
+
+#btn_login{
+	background-color: #140929;
+	color: #96FFBD;
+}
+
+#logo h1{
+	float: left;
+	margin: 0;
+	padding-top: 10px;
+}
+
+#header{
+	height: 100px;
+}
+
+#header p{
 	float: right;
 	margin-bottom: 15px;
 }
 
-#session a, #session p{
-	display: inline;
+#session{
 	float: right;
-	margin-left: 10px;
+	background-color: #140929;
+	border:0;
 }
 
-#session{
-margin-bottom: 15px;
+#session p:hover{
+	color: #96FFBD;
 }
+
+#session p{
+	display: inline;
+	float: right;
+	margin-right: 10px;
+	margin-left: 10px;
+	color: white;
+	text-decoration: none;
+
+}
+
+#about{
+	background-color: #140929;
+	color: white;
+}
+
+#about h3{
+	text-align: center;
+	padding: 30px;
+	margin: 0;
+}
+
+footer{
+	background-color: #96FFBD;
+	position: fixed;
+	height: 20px;
+	bottom: 0;
+	width: 100%;
+	padding: 30px;
+}
+
+
+
