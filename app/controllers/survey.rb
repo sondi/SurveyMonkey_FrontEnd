@@ -47,9 +47,9 @@ get '/show_survey/:id' do
 end
 
 get '/show_survey' do
-	id = session[:user_id]
-	user = User.find(id)
-	@user_surveys = Survey.where(user_id: id)
+	
+	@user_surveys = current_user.authored_surveys
+	# Survey.where(user_id: current_user.id)
 
 	erb :user_survey
 end

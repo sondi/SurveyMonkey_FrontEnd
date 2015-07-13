@@ -14,32 +14,57 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Monkey Survey</title>
 </head>
 <body>
+
   <div class="container">
-    <% if logged_in? %>
+    <div id="header">
+      <div id="logo"><h1>Monkey Survey</h1></div>
+      <% if logged_in? %>
       <div id="session">
-      <p><%= current_user.name + " is logged_in"  %><p>
-      <a href="/logout">LogOut</a>
-    </div>
-    <% else %>
+        <a href="/logout"><strong><p>LogOut</p></strong></a>
+        <a href="/users/<%=current_user.id%>">
+          <strong>
+            <p><%= "Hi " + current_user.name %></p></strong></a>
+      </div>
+</div>
+
+      <div id="menu">
+        <ul>
+          <li><a href="/users/<%=current_user.id%>/participations">Participations</a></li>
+          <li><a href="/users/<%=current_user.id%>/edit">Settings</a></li>
+          <li><a href="/new_survey">Crear</a></li>
+          <li><a href="/show_survey">Mis Encuestas</a></li>
+        </ul>
+        </div> 
+      <% else %>
+      
       <form id="login_form" action="/login" method="post">
         Email:
         <input type="text" name="email">
         Password:
         <input type="password" name="password">
-        <input type="submit" value="Log In">
+        <input type="submit" id="btn_login"value="Log In">
       </form>
-    <% end %>
-    <div id="errors">
-      <% if session[:errors] %>
+      <% end %>
+      <div id="errors">
+        <% if session[:errors] %>
         <p><%= session[:errors] %></p>
         <% session[:errors] = nil %>
-      <% end %>
-    </div>
-
+        <% end %>
+      </div>
+  <% if logged_in? %>
+    <div id="views">
     <%= yield %>
+    </div>
+  <% else %>
+    <div id="no_views">
+    <%= yield %>
+    </div>
+  <% end %>
   </div>
+</div>
+<footer>Credits:</footer>
 </body>
 </html>

@@ -1,8 +1,16 @@
-<h1>Survey Monkey App</h1>
-<h3>Welcome!</h3>
+<div id="title">
+<img src="img/chango.gif">
+</div>
 
-<h1>Register</h1>
-<form action="/register" method="post">
+<div id="about">
+	<h3>Somos una copia de Monkey Survey pero mas cool.</h3>
+</div>
+
+
+<div id="columns">
+<div id="register">
+	<h1>Signup to make a survey!</h1>
+<form action="/register"  method="post">
 	Name:
 	<input type="text" name="name"><br><br>
 	Email:
@@ -11,10 +19,14 @@
 	<input type="password" name="password"><br><br>
 	<input type="submit" value="Register">
 </form>
+</div>
 <!-- <a href="/users/new">Register</a> -->
-
+<div id="surveys" style="overflow: scroll">
+	<h1>Take a survey!</h1>
 <% if @surveys %>
 	<% @surveys.each do  |s|%>
-		<a href="#"><%= s.name %></a><br>
+		<a href="/take_survey/<%=s.id%>"><%= s.name %></a><br>
 	<% end %>
 <% end %>
+</div>
+</div>
